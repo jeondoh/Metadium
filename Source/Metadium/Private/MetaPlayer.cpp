@@ -14,12 +14,12 @@ AMetaPlayer::AMetaPlayer()
 
 	RootScene = CreateDefaultSubobject<USceneComponent>(TEXT("DefaultSceneRoot"));
 	VROrigin = CreateDefaultSubobject<USceneComponent>(TEXT("VROrigin"));
-	SkeletalMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("SkeletalMeshComponent"));
+	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
 	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 
 	RootComponent = RootScene;
-	SkeletalMeshComponent->SetupAttachment(GetRootComponent());
+	StaticMeshComponent->SetupAttachment(GetRootComponent());
 	VROrigin->SetupAttachment(GetRootComponent());
 	SpringArmComponent->SetupAttachment(VROrigin);
 	Camera->SetupAttachment(SpringArmComponent);

@@ -33,9 +33,9 @@ private:
 	/** VROrigin */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class USceneComponent* VROrigin;
-	/** SkeletalMesh */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
-	USkeletalMeshComponent* SkeletalMeshComponent;
+	/** StaticMesh */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta = (AllowPrivateAccess = true))
+	class UStaticMeshComponent* StaticMeshComponent;
 	/** VR 왼손 */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Player|Components", meta=(AllowPrivateAccess=true))
 	class AMotionActor* LeftController;
