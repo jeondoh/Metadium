@@ -7,7 +7,7 @@
 #include "GameFramework/Actor.h"
 #include "ImageViewActor.generated.h"
 
-// 데이터 테이블 정의 / 무기(Sword) 설정
+// 데이터 테이블 정의 / 이미지 설정
 USTRUCT(BlueprintType)
 struct FImageDataTable : public FTableRowBase
 {
@@ -45,6 +45,9 @@ private:
 	/** 위젯 */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta=(AllowPrivateAccess=true))
 	class UWidgetComponent* WidgetComponent;
+	/** 위젯 설명 */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta=(AllowPrivateAccess=true))
+	class UWidgetComponent* WidgetCaption;
 	/** 태그명 */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta=(AllowPrivateAccess=true))
 	FName ATageName;

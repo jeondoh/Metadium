@@ -11,9 +11,12 @@ AImageViewActor::AImageViewActor()
 	PrimaryActorTick.bCanEverTick = false;
 
 	DefaultSceneRoot = CreateDefaultSubobject<UWidgetComponent>(TEXT("DefaultSceneRoot"));
-	RootComponent = DefaultSceneRoot;
 	WidgetComponent = CreateDefaultSubobject<UWidgetComponent>(TEXT("WidgetComponent"));
+	WidgetCaption = CreateDefaultSubobject<UWidgetComponent>(TEXT("WidgetCaption"));
+
+	RootComponent = DefaultSceneRoot;
 	WidgetComponent->SetupAttachment(DefaultSceneRoot);
+	WidgetCaption->SetupAttachment(DefaultSceneRoot);
 }
 
 // Called when the game starts or when spawned
