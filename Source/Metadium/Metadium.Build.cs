@@ -8,7 +8,7 @@ public class Metadium : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG", "HTTP" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG", "HTTP", "Json", "JsonUtilities", "MediaAssets"});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
