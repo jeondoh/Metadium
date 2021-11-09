@@ -31,7 +31,7 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class USceneComponent* RootScene;
 	/** VROrigin */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class USceneComponent* VROrigin;
 	/** StaticMesh */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta = (AllowPrivateAccess = true))
@@ -49,8 +49,11 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Player|Components", meta = (AllowPrivateAccess = true))
 	class UWidgetInteractionComponent* WidgetCompRight;
 	/** Spring Arm */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class USpringArmComponent* SpringArmComponent;
+	/** SelfieCamera */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Player|Components", meta = (AllowPrivateAccess = true))
+	class UCameraComponent* SelfCamera;
 	/** Camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class UCameraComponent* Camera;

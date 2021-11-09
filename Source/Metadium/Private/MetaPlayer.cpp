@@ -17,12 +17,15 @@ AMetaPlayer::AMetaPlayer()
 	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
 	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
+	SelfCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("SelfCamera"));
 
 	RootComponent = RootScene;
-	StaticMeshComponent->SetupAttachment(GetRootComponent());
+	StaticMeshComponent->SetupAttachment(VROrigin);
 	VROrigin->SetupAttachment(GetRootComponent());
-	SpringArmComponent->SetupAttachment(VROrigin);
-	Camera->SetupAttachment(SpringArmComponent);
+	Camera->SetupAttachment(VROrigin);
+	SpringArmComponent->SetupAttachment(StaticMeshComponent);
+	SelfCamera->SetupAttachment(SpringArmComponent);
+
 }
 
 // Called when the game starts or when spawned
