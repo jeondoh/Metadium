@@ -57,6 +57,9 @@ private:
 	/** Camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class UCameraComponent* Camera;
+	/** 위젯 설명 */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
+	class UWidgetComponent* WidgetCaptionDetail;
 	
 	/*******************************************************************************************************/
 	
