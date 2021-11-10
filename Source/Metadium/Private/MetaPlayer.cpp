@@ -4,6 +4,7 @@
 #include "MetaPlayer.h"
 
 #include "Camera/CameraComponent.h"
+#include "Components/WidgetComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 
 // Sets default values
@@ -18,6 +19,7 @@ AMetaPlayer::AMetaPlayer()
 	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	SelfCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("SelfCamera"));
+	WidgetCaptionDetail = CreateDefaultSubobject<UWidgetComponent>(TEXT("WidgetCaption"));
 
 	RootComponent = RootScene;
 	StaticMeshComponent->SetupAttachment(VROrigin);
@@ -25,7 +27,7 @@ AMetaPlayer::AMetaPlayer()
 	Camera->SetupAttachment(VROrigin);
 	SpringArmComponent->SetupAttachment(StaticMeshComponent);
 	SelfCamera->SetupAttachment(SpringArmComponent);
-
+	WidgetCaptionDetail->SetupAttachment(RootScene);
 }
 
 // Called when the game starts or when spawned
