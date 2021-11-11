@@ -9,12 +9,25 @@
 			"Type": "Runtime",
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
-				"Engine"
+				"Engine",
+				"UMG"
 			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "VaRest",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/e47be161e7a24e928560290abd5dcc4f"
+		},
+		{
+			"Name": "WebBrowserWidget",
+			"Enabled": true
 		}
 	],
 	"TargetPlatforms": [
 		"PS4",
-		"WindowsNoEditor"
+		"WindowsNoEditor",
+		"Android"
 	]
 }

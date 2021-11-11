@@ -273,3 +273,4 @@ build/
 *_BuiltData.uasset
 # Visual studio encoding settings
 .editorconfig
+Content/VirtualRealityBP/Maps/MotionControllerMap.umap

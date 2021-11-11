@@ -24,18 +24,15 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 private:
-	/*******************************************************************************************************/
-	// 컴포넌트
-	
 	/** RootScene */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class USceneComponent* RootScene;
 	/** VROrigin */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class USceneComponent* VROrigin;
-	/** SkeletalMesh */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
-	USkeletalMeshComponent* SkeletalMeshComponent;
+	/** StaticMesh */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta = (AllowPrivateAccess = true))
+	class UStaticMeshComponent* StaticMeshComponent;
 	/** VR 왼손 */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Player|Components", meta=(AllowPrivateAccess=true))
 	class AMotionActor* LeftController;
@@ -49,12 +46,26 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Player|Components", meta = (AllowPrivateAccess = true))
 	class UWidgetInteractionComponent* WidgetCompRight;
 	/** Spring Arm */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class USpringArmComponent* SpringArmComponent;
+	/** SelfieCamera */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Player|Components", meta = (AllowPrivateAccess = true))
+	class UCameraComponent* SelfCamera;
 	/** Camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class UCameraComponent* Camera;
+	/** 위젯 설명 */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
+	class UWidgetComponent* WidgetCaptionDetail;
+	/** 파일저장 경로 */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Player|Upload", meta=(AllowPrivateAccess=true))
+	FString UploadPath;
+	/** 파일명 */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Player|Upload", meta=(AllowPrivateAccess=true))
+	FString UploadFileName;
+	/** 파일경로 Base64로 인코딩 */
+	UFUNCTION(BlueprintCallable)
+	void ReadFile(); 
 	
-	/*******************************************************************************************************/
 	
 };
