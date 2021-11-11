@@ -24,9 +24,6 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 private:
-	/*******************************************************************************************************/
-	// 컴포넌트
-	
 	/** RootScene */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class USceneComponent* RootScene;
@@ -60,7 +57,15 @@ private:
 	/** 위젯 설명 */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class UWidgetComponent* WidgetCaptionDetail;
+	/** 파일저장 경로 */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Player|Upload", meta=(AllowPrivateAccess=true))
+	FString UploadPath;
+	/** 파일명 */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Player|Upload", meta=(AllowPrivateAccess=true))
+	FString UploadFileName;
+	/** 파일경로 Base64로 인코딩 */
+	UFUNCTION(BlueprintCallable)
+	void ReadFile(); 
 	
-	/*******************************************************************************************************/
 	
 };
