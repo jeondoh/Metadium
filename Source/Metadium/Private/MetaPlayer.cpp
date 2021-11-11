@@ -36,9 +36,33 @@ void AMetaPlayer::BeginPlay()
 	Super::BeginPlay();
 }
 
-// Called to bind functionality to input
 void AMetaPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+}
 
+void AMetaPlayer::ReadFile()
+{
+	// We will use this FileManager to deal with the file.
+	FString FilePath = UploadPath;
+	FilePath.Append("/");
+	FilePath.Append(*UploadFileName);
+
+	IPlatformFile& PlatformFile = FPlatformFileManager::Get().GetPlatformFile();
+	FString AbsoluteFilePath = FilePath;
+
+	FString FileContent;
+	if(FFileHelper::LoadFileToString(FileContent, *FilePath, FFileHelper::EHashOptions::None))
+	{
+		UE_LOG(LogTemp, Error, TEXT("File Read ::: %s"), *FileContent);
+	}
+	
+	if (!PlatformFile.FileExists(*AbsoluteFilePath))
+	{
+		UE_LOG(LogTemp, Error, TEXT("Could Not Find File"));
+		return;
+	}
+	// const int FileSize = FPlatformFileManager::Get().GetPlatformFile().FileSize(*AbsoluteFilePath);
+	// UE_LOG(LogTemp, Error, TEXT("%d"), FileSize);
+	
 }
