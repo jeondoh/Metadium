@@ -28,6 +28,7 @@ void AImageViewActor::BeginPlay()
 void AImageViewActor::OnConstruction(const FTransform& Transform)
 {
 	Super::OnConstruction(Transform);
+	if(ATageName == TEXT("PlayerPhoto")) return;
 	SetImageDataTable();
 }
 
