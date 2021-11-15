@@ -63,9 +63,6 @@ private:
 	/** 파일명 */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Player|Upload", meta=(AllowPrivateAccess=true))
 	FString UploadFileName;
-	/** 파일경로 Base64로 인코딩 */
-	UFUNCTION(BlueprintCallable)
-	void ReadFile(); 
 	
 	
 };
