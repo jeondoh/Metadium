@@ -22,6 +22,12 @@ protected:
 private:
 	UPROPERTY(VisibleAnywhere, Category="Component", meta=(AllowPrivateAccess=true))
 	class UBoxComponent* BoxComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Component", meta=(AllowPrivateAccess=true))
+	TSubclassOf<class AImageViewActor> GalaryPhoto;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Component", meta=(AllowPrivateAccess=true))
+	TSubclassOf<class AImageViewActor> PlayerPhoto;
 	
 	UFUNCTION()
 	void BoxComponentBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
