@@ -3,6 +3,8 @@
 
 #include "MetaPlayer.h"
 
+
+#include "Components/BoxComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/WidgetComponent.h"
 #include "GameFramework/SpringArmComponent.h"
@@ -13,7 +15,9 @@ AMetaPlayer::AMetaPlayer()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
-	RootScene = CreateDefaultSubobject<USceneComponent>(TEXT("DefaultSceneRoot"));
+	//RootScene = CreateDefaultSubobject<USceneComponent>(TEXT("DefaultSceneRoot"));
+	RootScene = CreateDefaultSubobject<UBoxComponent>(TEXT("DefaultSceneRoot"));
+
 	VROrigin = CreateDefaultSubobject<USceneComponent>(TEXT("VROrigin"));
 	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
 	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));

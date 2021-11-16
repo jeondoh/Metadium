@@ -25,8 +25,15 @@ public:
 
 private:
 	/** RootScene */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
-	class USceneComponent* RootScene;
+	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
+	//class USceneComponent* RootScene;
+	
+	/** RootScene */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta = (AllowPrivateAccess = true))
+		class UBoxComponent* RootScene;
+
+
+
 	/** VROrigin */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class USceneComponent* VROrigin;
