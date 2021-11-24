@@ -18,6 +18,9 @@ struct FImageDataTable : public FTableRowBase
 	/** 이미지 URL(NAS경로) */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FText ImageUrl;
+	/** 이미지 제목 */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FText ImageTitle;
 	/** 이미지 설명 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FText ImageContext;
@@ -54,6 +57,9 @@ private:
 	/** 이미지 URL 경로 */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, meta=(AllowPrivateAccess=true))
 	FText AImageUrl;
+	/** 이미지 제목 */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta=(AllowPrivateAccess=true))
+	FText AImageTitle;
 	/** 이미지 설명 */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta=(AllowPrivateAccess=true))
 	FText AImageContext;
