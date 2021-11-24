@@ -31,38 +31,41 @@ void APlayerImageChange::BoxComponentBeginOverlap(UPrimitiveComponent* Overlappe
 	AMetaPlayer* Player = Cast<AMetaPlayer>(OtherActor);
 	if(Player)
 	{
-		TArray<AActor*> arrOutActors; // 갤러리에 미리 세팅되어 있는 액자들
-		TArray<AActor*> arrOutActors2; // Player가 찍은 사진들
-		UGameplayStatics::GetAllActorsOfClass(GetWorld(), GalaryPhoto, arrOutActors);
-		UGameplayStatics::GetAllActorsOfClass(GetWorld(), PlayerPhoto, arrOutActors2);
-		const int PlayerPhotoSize = arrOutActors2.Num();
-
-		if(arrOutActors.IsValidIndex(0))
+		if(GalaryPhoto && PlayerPhoto)
 		{
-			for(int i=0; i<arrOutActors.Num(); i++)
+			TArray<AActor*> arrOutActors; // 갤러리에 미리 세팅되어 있는 액자들
+			TArray<AActor*> arrOutActors2; // Player가 찍은 사진들
+			
+			UGameplayStatics::GetAllActorsOfClass(GetWorld(), GalaryPhoto, arrOutActors);
+			UGameplayStatics::GetAllActorsOfClass(GetWorld(), PlayerPhoto, arrOutActors2);
+			const int PlayerPhotoSize = arrOutActors2.Num();
+
+			if(arrOutActors.IsValidIndex(0))
 			{
-				AImageViewActor* GalaryActor = dynamic_cast<AImageViewActor*>(arrOutActors[i]);
-				if(GalaryActor)
+				for(int i=0; i<arrOutActors.Num(); i++)
 				{
-					// 캐릭터가 찍은 사진이 없을 경우 전체 삭제
-					if(!arrOutActors2.IsValidIndex(0) || i >= PlayerPhotoSize)
+					AImageViewActor* GalaryActor = dynamic_cast<AImageViewActor*>(arrOutActors[i]);
+					if(GalaryActor)
 					{
-						GalaryActor->Destroy();
-						continue;
-					}
-					const FVector ImgActorLocation = GalaryActor->GetActorLocation();
-					const FRotator ImgActorRotation = GalaryActor->GetActorRotation();
-					// 캐릭터가 찍은 사진 > 미리 세팅되어 있는 액자에 배치
-					AImageViewActor* PlayerActor = dynamic_cast<AImageViewActor*>(arrOutActors[i]);
-					if(PlayerActor)
-					{
-						PlayerActor->SetActorLocation(ImgActorLocation);
-						PlayerActor->SetActorRotation(ImgActorRotation);
-						GalaryActor->Destroy();
-					}
-					// TODO ddddddd
-				} // end if
-			} // end for
-		} // end if
+						// 캐릭터가 찍은 사진이 없을 경우 전체 삭제
+						if(!arrOutActors2.IsValidIndex(0) || i >= PlayerPhotoSize)
+						{
+							GalaryActor->Destroy();
+							continue;
+						}
+						const FTransform ImgActorTransform = GalaryActor->GetActorTransform();
+						// 캐릭터가 찍은 사진 > 미리 세팅되어 있는 액자에 배치
+						AImageViewActor* PlayerActor = dynamic_cast<AImageViewActor*>(arrOutActors2[i]);
+						if(PlayerActor)
+						{
+							PlayerActor->SetActorTransform(ImgActorTransform);
+							GalaryActor->Destroy();
+						}
+					} // end if
+				} // end for
+			} // end if
+		}
+		// 트리거 박스 제거
+		Destroy();
 	}
 }

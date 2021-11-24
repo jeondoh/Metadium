@@ -25,15 +25,8 @@ public:
 
 private:
 	/** RootScene */
-	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
-	//class USceneComponent* RootScene;
-	
-	/** RootScene */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta = (AllowPrivateAccess = true))
-		class UBoxComponent* RootScene;
-
-
-
+	class UBoxComponent* RootScene;
 	/** VROrigin */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class USceneComponent* VROrigin;
@@ -70,6 +63,14 @@ private:
 	/** 파일명 */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Player|Upload", meta=(AllowPrivateAccess=true))
 	FString UploadFileName;
-	
+
+	// *********************************************************************************************************** //
+
+	/** 캐릭터명 */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Player|Info", meta=(AllowPrivateAccess=true))
+	FString PlayerName;
+	/** 캐릭터 이메일 */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Player|Info", meta=(AllowPrivateAccess=true))
+	FString PlayerEmail;
 	
 };

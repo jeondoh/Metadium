@@ -42,6 +42,7 @@ void AImageViewActor::SetImageDataTable()
 		FImageDataTable* ImgDataRow = nullptr;
 		// 초기화
 		AImageUrl = FText::FromString(TEXT(""));
+		AImageTitle = FText::FromString(TEXT(""));
 		AImageContext = FText::FromString(TEXT(""));
 		// 데이터 불러오기
 		ImgDataRow = ImgTableObject->FindRow<FImageDataTable>(ATageName, TEXT(""));
@@ -54,6 +55,7 @@ void AImageViewActor::SetImageDataRow(FImageDataTable* ImgDataRow)
 	if(ImgDataRow)
 	{
 		AImageUrl = ImgDataRow->ImageUrl;
+		AImageTitle = ImgDataRow->ImageTitle;
 		AImageContext = ImgDataRow->ImageContext;
 	}
 }
