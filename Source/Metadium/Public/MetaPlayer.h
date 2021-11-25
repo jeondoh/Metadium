@@ -54,6 +54,12 @@ private:
 	/** Camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class UCameraComponent* Camera;
+	/** 캐릭터 파티클 */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
+	UParticleSystemComponent* PlayerParticle;
+	/** 캐릭터 머리띠 */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
+	UStaticMeshComponent* PlayerAcc;
 	/** 위젯 설명 */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class UWidgetComponent* WidgetCaptionDetail;

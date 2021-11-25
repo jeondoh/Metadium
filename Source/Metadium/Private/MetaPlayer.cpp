@@ -8,6 +8,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/WidgetComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Particles/ParticleSystemComponent.h"
 
 // Sets default values
 AMetaPlayer::AMetaPlayer()
@@ -24,6 +25,8 @@ AMetaPlayer::AMetaPlayer()
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	SelfCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("SelfCamera"));
 	WidgetCaptionDetail = CreateDefaultSubobject<UWidgetComponent>(TEXT("WidgetCaption"));
+	PlayerParticle = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("PlayerParticle"));
+	PlayerAcc = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("PlayerAcc"));
 
 	RootComponent = RootScene;
 	StaticMeshComponent->SetupAttachment(VROrigin);
@@ -32,6 +35,8 @@ AMetaPlayer::AMetaPlayer()
 	SpringArmComponent->SetupAttachment(StaticMeshComponent);
 	SelfCamera->SetupAttachment(SpringArmComponent);
 	WidgetCaptionDetail->SetupAttachment(RootScene);
+	PlayerParticle->SetupAttachment(RootScene);
+	PlayerAcc->SetupAttachment(RootScene);
 }
 
 // Called when the game starts or when spawned
