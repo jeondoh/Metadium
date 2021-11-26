@@ -4,6 +4,7 @@
 #include "MetaPlayer.h"
 
 
+#include "CustomPlayerFnc.h"
 #include "Components/BoxComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/WidgetComponent.h"
@@ -16,7 +17,6 @@ AMetaPlayer::AMetaPlayer()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
-	//RootScene = CreateDefaultSubobject<USceneComponent>(TEXT("DefaultSceneRoot"));
 	RootScene = CreateDefaultSubobject<UBoxComponent>(TEXT("DefaultSceneRoot"));
 
 	VROrigin = CreateDefaultSubobject<USceneComponent>(TEXT("VROrigin"));
@@ -32,7 +32,7 @@ AMetaPlayer::AMetaPlayer()
 	StaticMeshComponent->SetupAttachment(VROrigin);
 	VROrigin->SetupAttachment(GetRootComponent());
 	Camera->SetupAttachment(VROrigin);
-	SpringArmComponent->SetupAttachment(StaticMeshComponent);
+	SpringArmComponent->SetupAttachment(VROrigin);
 	SelfCamera->SetupAttachment(SpringArmComponent);
 	WidgetCaptionDetail->SetupAttachment(RootScene);
 	PlayerParticle->SetupAttachment(RootScene);
@@ -43,9 +43,16 @@ AMetaPlayer::AMetaPlayer()
 void AMetaPlayer::BeginPlay()
 {
 	Super::BeginPlay();
+	
 }
 
-void AMetaPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-}
+/*
+static mesh
+엘리먼트0 = BODY
+엘리먼트2 = FACE
+head acc 
+HEAD
+player particle
+effects
+
+ */

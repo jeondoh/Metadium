@@ -19,10 +19,6 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 private:
 	/** RootScene */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta = (AllowPrivateAccess = true))
@@ -78,5 +74,11 @@ private:
 	/** 캐릭터 이메일 */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Player|Info", meta=(AllowPrivateAccess=true))
 	FString PlayerEmail;
+
+	// *********************************************************************************************************** //
+
+	/** 커스텀 엑터 */
+	UPROPERTY()
+	class ACustomPlayerFnc* CustomPlayerFnc;
 	
 };
