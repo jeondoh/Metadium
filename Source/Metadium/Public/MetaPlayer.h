@@ -19,10 +19,6 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 private:
 	/** RootScene */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta = (AllowPrivateAccess = true))
@@ -54,6 +50,12 @@ private:
 	/** Camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class UCameraComponent* Camera;
+	/** 캐릭터 파티클 */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
+	UParticleSystemComponent* PlayerParticle;
+	/** 캐릭터 머리띠 */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
+	UStaticMeshComponent* PlayerAcc;
 	/** 위젯 설명 */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Player|Components", meta=(AllowPrivateAccess=true))
 	class UWidgetComponent* WidgetCaptionDetail;
@@ -72,5 +74,18 @@ private:
 	/** 캐릭터 이메일 */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Player|Info", meta=(AllowPrivateAccess=true))
 	FString PlayerEmail;
-	
+
+	// *********************************************************************************************************** //
+
+	/** 커스텀 캐릭터 */
+	UPROPERTY(EditAnywhere, Category="Custom", meta=(AllowPrivateAccess=true))
+	TSubclassOf<class ACustomPlayerFnc> CustomPlayerFnc;
+	/** GamePlay에 저장되어있는 캐릭터명 가져오기 */
+	UFUNCTION(BlueprintCallable)
+	void GetPlayerInfo();
+	/** DB에서 커스텀 정보 가져와서 캐릭터 커스텀 */
+	UFUNCTION(BlueprintCallable)
+	void GetPlayerInfoSetCustom();
+	UFUNCTION()
+	ACustomPlayerFnc* GetCustomPlayerFnc();
 };

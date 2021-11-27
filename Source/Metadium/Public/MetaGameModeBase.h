@@ -13,5 +13,12 @@ UCLASS()
 class METADIUM_API AMetaGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+
+public:
+	UFUNCTION(BlueprintCallable)
+	void SavePlayerName(FString CustomPlayerName);
+
+	UFUNCTION(BlueprintCallable)
+	FString LoadPlayerName();
 	
 };
