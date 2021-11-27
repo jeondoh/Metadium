@@ -4,6 +4,7 @@
 #include "CustomActor.h"
 
 #include "CustomPlayerFnc.h"
+#include "Kismet/GameplayStatics.h"
 #include "Particles/ParticleSystemComponent.h"
 
 // Sets default values
@@ -21,6 +22,11 @@ ACustomActor::ACustomActor()
 	StaticMeshComponent->SetupAttachment(GetRootComponent());
 	HeadAcc->SetupAttachment(GetRootComponent());
 	PlayerParticle->SetupAttachment(GetRootComponent());
+	// 캐릭터 커스텀 값 Index 기본지정
+	UserAcc = TEXT("0");
+	UserPhoto = TEXT("0");
+	UserColor = TEXT("0");
+	UserParticle = TEXT("0");
 }
 
 // Called when the game starts or when spawned

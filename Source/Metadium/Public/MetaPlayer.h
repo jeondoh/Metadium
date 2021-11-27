@@ -77,8 +77,10 @@ private:
 
 	// *********************************************************************************************************** //
 
-	/** 커스텀 엑터 */
-	UPROPERTY()
-	class ACustomPlayerFnc* CustomPlayerFnc;
-	
+	/** GamePlay에 저장되어있는 캐릭터명 가져오기 */
+	UFUNCTION(BlueprintCallable)
+	void GetPlayerInfo();
+	/** DB에서 커스텀 정보 가져와서 캐릭터 커스텀 */
+	UFUNCTION(BlueprintCallable)
+	void GetPlayerInfoSetCustom();
 };

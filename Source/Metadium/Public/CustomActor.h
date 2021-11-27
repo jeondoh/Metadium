@@ -63,4 +63,5 @@ private:
 	void CallPlayerParticleCustom(int Index);
 	UFUNCTION()
 	void CustomMaterial(int Index, int ElementIndex, UMaterialInstance* MatIns);
+
 };

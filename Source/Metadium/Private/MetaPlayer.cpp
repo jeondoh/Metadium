@@ -3,12 +3,12 @@
 
 #include "MetaPlayer.h"
 
-
-#include "CustomPlayerFnc.h"
+#include "MetaGameModeBase.h"
 #include "Components/BoxComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/WidgetComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "Particles/ParticleSystemComponent.h"
 
 // Sets default values
@@ -43,16 +43,16 @@ AMetaPlayer::AMetaPlayer()
 void AMetaPlayer::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	GetPlayerInfo();
 }
 
-/*
-static mesh
-엘리먼트0 = BODY
-엘리먼트2 = FACE
-head acc 
-HEAD
-player particle
-effects
+void AMetaPlayer::GetPlayerInfo()
+{
+	AMetaGameModeBase* GameMode = Cast<AMetaGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	PlayerName = GameMode->LoadPlayerName();
+}
 
- */
+void AMetaPlayer::GetPlayerInfoSetCustom()
+{
+	
+}
