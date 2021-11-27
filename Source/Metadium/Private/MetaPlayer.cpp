@@ -44,18 +44,8 @@ AMetaPlayer::AMetaPlayer()
 void AMetaPlayer::BeginPlay()
 {
 	Super::BeginPlay();
-	// GetPlayerInfo();
-}
-
-void AMetaPlayer::GetPlayerInfo()
-{
-	AMetaGameModeBase* GameMode = Cast<AMetaGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
-	PlayerName = GameMode->LoadPlayerName();
-}
-
-void AMetaPlayer::GetPlayerInfoSetCustom()
-{
-	
+	CustomActFnc = GetCustomPlayerFnc(); // 커스텀 Function Spawn
+	GetPlayerInfo(); // 저장된 커스텀 정보 가져오기
 }
 
 ACustomPlayerFnc* AMetaPlayer::GetCustomPlayerFnc()
@@ -67,4 +57,55 @@ ACustomPlayerFnc* AMetaPlayer::GetCustomPlayerFnc()
 		return GetWorld()->SpawnActor<ACustomPlayerFnc>(CustomPlayerFnc, FVector(0.f), FRotator(0.f), Params);		
 	}
 	return nullptr;
+}
+
+void AMetaPlayer::GetPlayerInfo()
+{
+	AMetaGameModeBase* GameMode = Cast<AMetaGameModeBase>(UGameplayStatics::GetGameMode(GetWorld()));
+	if(GameMode)
+	{
+		PlayerName = GameMode->LoadPlayerName();
+		GetPlayerInfoToDB(); // DB에서 정보 가져와서 변수에 SET
+	}
+}
+
+void AMetaPlayer::CallPlayerHeadCustom(int Index)
+{
+	if(Index>4) return;
+	if(CustomPlayerFnc && CustomActFnc)
+	{
+		PlayerAcc->SetStaticMesh(CustomActFnc->PlayerHeadCustom(Index));
+	}
+}
+
+void AMetaPlayer::CallPlayerFaceCustom(int Index)
+{
+	UMaterialInstance* MaterialInstance = CustomActFnc->PlayerFaceCustom(Index);
+	CustomMaterial(Index, 2, MaterialInstance);
+}
+
+void AMetaPlayer::CallPlayerColorCustom(int Index)
+{
+	UMaterialInstance* MaterialInstance = CustomActFnc->PlayerColorCustom(Index);
+	CustomMaterial(Index, 0, MaterialInstance);
+}
+
+void AMetaPlayer::PlayerParticleCustom(int Index)
+{
+	if(Index>4) return;
+	if(CustomPlayerFnc && CustomActFnc)
+	{
+		PlayerParticle->SetTemplate(CustomActFnc->PlayerParticleCustom(Index));
+		PlayerParticle->SetRelativeScale3D(FVector(4.f));		
+	}
+}
+
+void AMetaPlayer::CustomMaterial(int Index, int ElementIndex, UMaterialInstance* MatIns)
+{
+	if(Index>4) return;
+	if(CustomPlayerFnc && CustomActFnc)
+	{
+		UMaterialInstanceDynamic* DynamicMaterialInstance = UMaterialInstanceDynamic::Create(MatIns, this);
+		StaticMeshComponent->SetMaterial(ElementIndex, DynamicMaterialInstance);
+	}
 }
