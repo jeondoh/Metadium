@@ -44,7 +44,7 @@ AMetaPlayer::AMetaPlayer()
 void AMetaPlayer::BeginPlay()
 {
 	Super::BeginPlay();
-	GetPlayerInfo();
+	// GetPlayerInfo();
 }
 
 void AMetaPlayer::GetPlayerInfo()
