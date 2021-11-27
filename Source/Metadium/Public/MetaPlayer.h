@@ -77,10 +77,15 @@ private:
 
 	// *********************************************************************************************************** //
 
+	/** 커스텀 캐릭터 */
+	UPROPERTY(EditAnywhere, Category="Custom", meta=(AllowPrivateAccess=true))
+	TSubclassOf<class ACustomPlayerFnc> CustomPlayerFnc;
 	/** GamePlay에 저장되어있는 캐릭터명 가져오기 */
 	UFUNCTION(BlueprintCallable)
 	void GetPlayerInfo();
 	/** DB에서 커스텀 정보 가져와서 캐릭터 커스텀 */
 	UFUNCTION(BlueprintCallable)
 	void GetPlayerInfoSetCustom();
+	UFUNCTION()
+	ACustomPlayerFnc* GetCustomPlayerFnc();
 };

@@ -3,6 +3,7 @@
 
 #include "MetaPlayer.h"
 
+#include "CustomPlayerFnc.h"
 #include "MetaGameModeBase.h"
 #include "Components/BoxComponent.h"
 #include "Camera/CameraComponent.h"
@@ -55,4 +56,15 @@ void AMetaPlayer::GetPlayerInfo()
 void AMetaPlayer::GetPlayerInfoSetCustom()
 {
 	
+}
+
+ACustomPlayerFnc* AMetaPlayer::GetCustomPlayerFnc()
+{
+	FActorSpawnParameters Params;
+	Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+	if(CustomPlayerFnc)
+	{
+		return GetWorld()->SpawnActor<ACustomPlayerFnc>(CustomPlayerFnc, FVector(0.f), FRotator(0.f), Params);		
+	}
+	return nullptr;
 }
