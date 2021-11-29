@@ -15,6 +15,10 @@ public:
 	// Sets default values for this pawn's properties
 	AMetaPlayer();
 
+	/** DB에서 커스텀 정보 가져와서 캐릭터 커스텀 */
+	UFUNCTION(BlueprintImplementableEvent)
+	void GetPlayerInfoToDB();
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -80,12 +84,25 @@ private:
 	/** 커스텀 캐릭터 */
 	UPROPERTY(EditAnywhere, Category="Custom", meta=(AllowPrivateAccess=true))
 	TSubclassOf<class ACustomPlayerFnc> CustomPlayerFnc;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Custom", meta=(AllowPrivateAccess=true))
+	class ACustomPlayerFnc* CustomActFnc;
+	/** 커스텀 인덱스 저장 Array */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="Custom", meta=(AllowPrivateAccess=true))
+	TArray<int> CustomIndex;
 	/** GamePlay에 저장되어있는 캐릭터명 가져오기 */
 	UFUNCTION(BlueprintCallable)
 	void GetPlayerInfo();
-	/** DB에서 커스텀 정보 가져와서 캐릭터 커스텀 */
-	UFUNCTION(BlueprintCallable)
-	void GetPlayerInfoSetCustom();
 	UFUNCTION()
 	ACustomPlayerFnc* GetCustomPlayerFnc();
+	/** 커스텀 */
+	UFUNCTION(BlueprintCallable)
+	void CallPlayerHeadCustom(int Index);
+	UFUNCTION(BlueprintCallable)
+	void CallPlayerFaceCustom(int Index);
+	UFUNCTION(BlueprintCallable)
+	void CallPlayerColorCustom(int Index);
+	UFUNCTION(BlueprintCallable)
+	void PlayerParticleCustom(int Index);
+	UFUNCTION()
+	void CustomMaterial(int Index, int ElementIndex, UMaterialInstance* MatIns);
 };

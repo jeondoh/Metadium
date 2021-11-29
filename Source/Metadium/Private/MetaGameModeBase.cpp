@@ -18,8 +18,26 @@ FString AMetaGameModeBase::LoadPlayerName()
 	UMetadiumSaveGame* LoadGameInstance = Cast<UMetadiumSaveGame>(UGameplayStatics::CreateSaveGameObject(UMetadiumSaveGame::StaticClass()));
 	if(LoadGameInstance)
 	{
-		LoadGameInstance = Cast<UMetadiumSaveGame>(UGameplayStatics::LoadGameFromSlot(LoadGameInstance->SaveSlotName, LoadGameInstance->UserIndex));
-		return LoadGameInstance->SavePlayerName;
+		const bool bSaveGame = UGameplayStatics::DoesSaveGameExist(LoadGameInstance->SaveSlotName, LoadGameInstance->UserIndex);
+		if(bSaveGame)
+		{
+			LoadGameInstance = Cast<UMetadiumSaveGame>(UGameplayStatics::LoadGameFromSlot(LoadGameInstance->SaveSlotName, LoadGameInstance->UserIndex));
+			return LoadGameInstance->SavePlayerName;
+		}
 	}
 	return TEXT("");
 }
+
+void AMetaGameModeBase::DeleteGame()
+{
+	UMetadiumSaveGame* LoadGameInstance = Cast<UMetadiumSaveGame>(UGameplayStatics::CreateSaveGameObject(UMetadiumSaveGame::StaticClass()));
+	if(LoadGameInstance)
+	{
+		const bool bSaveGame = UGameplayStatics::DoesSaveGameExist(LoadGameInstance->SaveSlotName, LoadGameInstance->UserIndex);
+		if(bSaveGame)
+		{
+			UGameplayStatics::DeleteGameInSlot(LoadGameInstance->SaveSlotName, LoadGameInstance->UserIndex);
+		}
+	}
+}
+
