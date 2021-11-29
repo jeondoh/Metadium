@@ -20,5 +20,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	FString LoadPlayerName();
-	
+
+	UFUNCTION()
+	void DeleteGame();
 };

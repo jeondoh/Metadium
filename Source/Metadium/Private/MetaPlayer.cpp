@@ -66,6 +66,7 @@ void AMetaPlayer::GetPlayerInfo()
 	{
 		PlayerName = GameMode->LoadPlayerName();
 		GetPlayerInfoToDB(); // DB에서 정보 가져와서 변수에 SET
+	 	GameMode->DeleteGame(); // 저장 슬롯 제거
 	}
 }
 
