@@ -45,6 +45,9 @@ void AVideoViewActor::SetVideoDataTable()
 		// 초기화
 		AVideoUrl = FText::FromString(TEXT(""));
 		AVideoContext = FText::FromString(TEXT(""));
+
+		if(ATageName==TEXT("None")) return;
+		
 		// 데이터 불러오기
 		VideoDataRow = VideoTableObject->FindRow<FVideoDataTable>(ATageName, TEXT(""));
 		SetVideoDataRow(VideoDataRow);
