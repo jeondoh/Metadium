@@ -65,7 +65,7 @@ void APlayerImageChange::BoxComponentBeginOverlap(UPrimitiveComponent* Overlappe
 				} // end for
 			} // end if
 		}
-		// 트리거 박스 제거
-		Destroy();
+		// 마지막 장소 문 열리게
+		MovingPhotoZoneBox();
 	}
 }
