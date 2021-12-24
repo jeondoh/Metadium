@@ -34,7 +34,7 @@
 
 
 ### 3. Take Photo & Get Mail 
-![photo](https://user-images.githubusercontent.com/41669026/147324054-936cbba7-0e66-4958-b29c-dee02ea6f027.png)
+![photo1](https://user-images.githubusercontent.com/41669026/147326192-8797bc1d-b9ef-42a7-8500-ac1b3d53eaba.png)
 ![mail](https://user-images.githubusercontent.com/41669026/147325033-f1f5585c-f87a-4aa4-9697-ec8d5d7e9672.jpg)
 
 
