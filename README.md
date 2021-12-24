@@ -34,15 +34,15 @@
 
 
 ### 3. Take Photo & Get Mail 
-![photo1](https://user-images.githubusercontent.com/41669026/147326192-8797bc1d-b9ef-42a7-8500-ac1b3d53eaba.png)
-![mail](https://user-images.githubusercontent.com/41669026/147325033-f1f5585c-f87a-4aa4-9697-ec8d5d7e9672.jpg)
+![photo2](https://user-images.githubusercontent.com/41669026/147326573-ab9c9680-8e6f-404a-8954-a2a49414bb2a.png)
+![mail2](https://user-images.githubusercontent.com/41669026/147326510-724a42ae-1cfb-49e1-9c47-815c0299209b.jpg)
 
 
 
 ## Coex
 ### Our project was exhibited at COEX 2021.12.16 ~ 2021.12.18.
-![coex](https://user-images.githubusercontent.com/41669026/147325170-f56e9249-3ce2-4b80-bb6a-0f68c48fc503.jpg)
-![coex2](https://user-images.githubusercontent.com/41669026/147325131-36f77011-5925-47a4-a8a4-726c81b371a9.jpg)
+![coex4](https://user-images.githubusercontent.com/41669026/147326831-5653df83-53b2-4bcc-ad4d-316499cc4bf0.jpg)
+![coex3](https://user-images.githubusercontent.com/41669026/147326786-8cbe268d-0794-4cda-9103-4e1f4cb7ac64.jpg)
 
 
 ## Demo Video
