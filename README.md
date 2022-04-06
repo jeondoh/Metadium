@@ -46,8 +46,7 @@
 
 
 ## Demo Video
-- Play Video
-http://175.198.95.114:8000/static/Metadium.mp4
+- http://175.198.95.114:8000/static/Metadium.mp4
 
 
 
