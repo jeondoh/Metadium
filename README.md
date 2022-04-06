@@ -46,8 +46,8 @@
 
 
 ## Demo Video
-- Download And Play Video  
-http://gofile.me/5h8Yf/L0tRRKzry  
+- Play Video
+http://175.198.95.114:8000/static/Metadium.mp4
 
 
 
