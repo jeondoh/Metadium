@@ -46,6 +46,7 @@
 
 
 ## Demo Video
+- NAS 서버가 sleep 상태일 경우 재생에 시간이 다소 걸릴 수 있습니다.
 - http://175.198.95.114:8000/static/Metadium.mp4
 
 
